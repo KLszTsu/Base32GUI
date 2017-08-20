@@ -1,8 +1,21 @@
 ﻿// Base32.cpp : 定义控制台应用程序的入口点。
 //
 
+// Visual Studio for Globefish
+#ifdef _MSC_VER
 #include "stdafx.h"
 #include "windows.h"
+
+#endif
+// GNU G++ for KLsz
+#ifdef __GNUC__
+#include <fstream>
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#define _stricmp strcasecmp
+#endif
+
 using namespace std;
 
 #define allocERR 2
