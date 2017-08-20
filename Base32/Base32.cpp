@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #define _stricmp strcasecmp
+
 #endif
 
 using namespace std;
@@ -28,6 +29,8 @@ typedef char* (*pEnc)(char*);
 
 char Base32EncL[33] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 char Base32DecL[91] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,27,28,29,30,31,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
+
+#define Err 1
 
 //void GetMemory(char **p, int num) {
 //	*p = (char *)malloc(sizeof(char) * num);
@@ -209,7 +212,7 @@ int Dec(char* argv) {
 int main(int argc, char* argv[])
 {
 	setlocale(LC_ALL, "chs");
-	int Err = 1;
+	//int Err = 1; // See line 32
 	if (argc != 3 && argc != 4) printf("Usage: Base32 [-Enc|-Dec|fEnc|fDec] \"string|file\" [\"output file\"]\n");
 	if (argc == 3) {
 		if (_stricmp(argv[1], "-Enc") == 0) {
