@@ -1,8 +1,22 @@
 ﻿// Base32.cpp : 定义控制台应用程序的入口点。
 //
 
+// Visual Studio for Globefish
+#ifdef _MSC_VER
 #include "stdafx.h"
 #include "windows.h"
+
+#endif
+// GNU G++ for KLsz
+#ifdef __GNUC__
+#include <fstream>
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#define _stricmp strcasecmp
+
+#endif
+
 using namespace std;
 
 #define allocERR 2
@@ -15,6 +29,8 @@ typedef char* (*pEnc)(char*);
 
 char Base32EncL[33] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 char Base32DecL[91] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,27,28,29,30,31,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
+
+#define Err 1
 
 //void GetMemory(char **p, int num) {
 //	*p = (char *)malloc(sizeof(char) * num);
@@ -37,7 +53,7 @@ char* Enc(char* argv, bool binary = false) {
 	if (binary == true) {
 		StrCharSize = ReadBytes / sizeof(wchar_t);
 		sp = (wchar_t*)argv;
-	} else {
+	} else /* binary == false */ {
 		StrCharSize = mbstowcs(NULL, argv, 0);//调用函数获得需要的内存空间
 		sp = new(nothrow) wchar_t[StrCharSize + 1]();//分配内存空间,存储UNICODE元数据
 		mbstowcs((wchar_t*)sp, argv, 2 * StrCharSize);//在申请的内存空间存入转换后的UNICODE字符
@@ -195,15 +211,20 @@ int Dec(char* argv) {
 
 int main(int argc, char* argv[])
 {
+#ifdef _MSC_VER
 	setlocale(LC_ALL, "chs");
-	int Err = 1;
+#endif
+#ifdef __GNUC__
+	setlocale(LC_ALL, "");
+#endif
+    //int Err = 1; // See line 32
 	if (argc != 3 && argc != 4) printf("Usage: Base32 [-Enc|-Dec|fEnc|fDec] \"string|file\" [\"output file\"]\n");
 	if (argc == 3) {
 		if (_stricmp(argv[1], "-Enc") == 0) {
 			char* p;
 			p = Enc(argv[2]);
 			if (p == NULL) { printf("Function ERROR!"); return funcERR; }
-			else { printf(p); delete p; p = NULL; }
+			else { printf(p); cout << endl; delete p; p = NULL; }
 		} 
 		else if (_stricmp(argv[1], "-Dec") == 0) {
 			Dec(argv[2]);
