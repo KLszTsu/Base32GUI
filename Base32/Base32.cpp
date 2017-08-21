@@ -203,7 +203,7 @@ int Dec(char* argv) {
 			pProc++;//元数据指针移动
 		}
 	}
-	wcout << od;
+	wcout << od << endl;
 	delete[] od;//释放内存与指针
 	od, dProc, dSrc, dOverflow, pProc, pSrc, pOverflow = NULL;
 	return 0;
