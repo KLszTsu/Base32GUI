@@ -1,3 +1,3 @@
 a.out : Base32.cpp
-	g++ Base32.cpp -o a.out
+	g++ Base32.cpp -g -o a.out
 
