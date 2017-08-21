@@ -211,15 +211,20 @@ int Dec(char* argv) {
 
 int main(int argc, char* argv[])
 {
+#ifdef _MSC_VER
 	setlocale(LC_ALL, "chs");
-	//int Err = 1; // See line 32
+#endif
+#ifdef __GNUC__
+	setlocale(LC_ALL, "");
+#endif
+    //int Err = 1; // See line 32
 	if (argc != 3 && argc != 4) printf("Usage: Base32 [-Enc|-Dec|fEnc|fDec] \"string|file\" [\"output file\"]\n");
 	if (argc == 3) {
 		if (_stricmp(argv[1], "-Enc") == 0) {
 			char* p;
 			p = Enc(argv[2]);
 			if (p == NULL) { printf("Function ERROR!"); return funcERR; }
-			else { printf(p); delete p; p = NULL; }
+			else { printf(p); cout << endl; delete p; p = NULL; }
 		} 
 		else if (_stricmp(argv[1], "-Dec") == 0) {
 			Dec(argv[2]);

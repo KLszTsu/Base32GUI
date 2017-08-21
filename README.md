@@ -26,7 +26,6 @@ Then you can run it with
 ```
 ./a.out
 ```
-Notice: Now there is a bug with linux version, so please don't try to encode Chinese character or other non-ASCII character. We will fix it soon. Thanks.  
 
 ## 1.1.3 Updata log  
 Fix:  
