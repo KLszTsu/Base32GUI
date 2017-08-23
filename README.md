@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fd0ec010520447c597207fcdb0acc57a)](https://www.codacy.com/app/KuangLei/Base32?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Globefishp/Base32&amp;utm_campaign=Badge_Grade)  
+
 # Base32
 A simple Base32 Enc/Decoder in C++  
 
