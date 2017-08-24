@@ -209,6 +209,8 @@ int Dec(char* argv) {
 	return 0;
 }
 
+#ifndef __BASE32GUI__
+
 int main(int argc, char* argv[])
 {
 #ifdef _MSC_VER
@@ -258,4 +260,6 @@ int main(int argc, char* argv[])
 
 	return Err;
 }
+
+#endif //__BASE32GUI__
 
