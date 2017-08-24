@@ -12,7 +12,8 @@ install:
     - source /opt/qt58/bin/qt58-env.sh
 
 script:
+    - cd Base32GUI
     - /opt/qt58/bin/qmake -project
-    - /opt/qt58/bin/qmake Base32GUI/Base32GUI.pro
+    - /opt/qt58/bin/qmake Base32GUI.pro
     - make
 
