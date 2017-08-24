@@ -55,12 +55,7 @@ char* Enc(char* argv, bool binary = false) {
 		sp = (wchar_t*)argv;
 	} else /* binary == false */ {
 		StrCharSize = mbstowcs(NULL, argv, 0);//调用函数获得需要的内存空间
-#ifdef _MSC_VER
 		sp = new(nothrow) wchar_t[StrCharSize + 1]();//分配内存空间,存储UNICODE元数据
-#endif
-#ifdef __GNUC__
-        sp = new(nothrow) wchar_t[2 * StrCharSize + 1]();
-#endif
 		mbstowcs((wchar_t*)sp, argv, 2 * StrCharSize);//在申请的内存空间存入转换后的UNICODE字符
 	}
 
