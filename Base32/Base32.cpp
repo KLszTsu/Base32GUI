@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
 	setlocale(LC_ALL, "chs");
 #endif
 #ifdef __GNUC__
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "en_US.UTF-8");
 #endif
     //int Err = 1; // See line 32
 	if (argc != 3 && argc != 4) printf("Usage: Base32 [-Enc|-Dec|fEnc|fDec] \"string|file\" [\"output file\"]\n");
