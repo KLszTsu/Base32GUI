@@ -37,7 +37,7 @@ Then you can run it with
 
 ---
 
-[![Build Status](https://travis-ci.org/KuangLei/Base32GUI.svg?branch=master)](https://travis-ci.org/KuangLei/Base32GUI)
+[![Build Status](https://travis-ci.org/KuangLei/Base32GUI.svg?branch=GUI_dev)](https://travis-ci.org/KuangLei/Base32GUI)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c4b924467ef846068ffb1dcb325077c6)](https://www.codacy.com/app/KuangLei/Base32GUI?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KuangLei/Base32GUI&amp;utm_campaign=Badge_Grade)  
 ## Base32GUI
 Base32GUI is the GUI development for [Globefishp/Base32](https://github.com/Globefishp/Base32/) using Qt.  
