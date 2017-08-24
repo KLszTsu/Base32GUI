@@ -35,3 +35,16 @@ Then you can run it with
 ./a.out
 ```
 
+[![Build Status](https://travis-ci.org/KuangLei/Base32GUI.svg?branch=master)](https://travis-ci.org/KuangLei/Base32GUI)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c4b924467ef846068ffb1dcb325077c6)](https://www.codacy.com/app/KuangLei/Base32GUI?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KuangLei/Base32GUI&amp;utm_campaign=Badge_Grade)  
+## Base32GUI
+Base32GUI is the GUI development for [Globefishp/Base32](https://github.com/Globefishp/Base32/) using Qt.  
+
+The main Base32 repository is at [Globefishp/Base32](https://github.com/Globefishp/Base32/), while Base32GUI deveploment repository is at [KLsz/Base32GUI](https://github.com/KuangLei/Base32GUI).  
+The development is at the [Base32GUI](https://github.com/KuangLei/Base32GUI/tree/GUI_dev/Base32GUI) folder.  
+
+**ONLY** the Base32GUI follows the [GPLv3](https://github.com/KuangLei/Base32GUI/blob/GUI_dev/Base32GUI/LICENSE), not including Base32.  
+If you want to contribute to Base32GUI, please see the [CONTRIBUTING.md](https://github.com/KuangLei/Base32GUI/blob/GUI_dev/Base32GUI/CONTRIBUTING.md).  
+
+Thanks.  
+
