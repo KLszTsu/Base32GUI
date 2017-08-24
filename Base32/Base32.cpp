@@ -28,7 +28,7 @@ using namespace std;
 typedef char* (*pEnc)(char*);
 
 char Base32EncL[33] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-char Base32DecL[91] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,27,28,29,30,31,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
+char Base32DecL[91] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 27, 28, 29, 30, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
 
 #define Err 1
 
@@ -40,7 +40,7 @@ char Base32DecL[91] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 //	char *str = NULL;
 //	GetMemory(&str, 100); // str 仍然为 NULL
 //
-//	strcpy(str, "hello"); 
+//	strcpy(str, "hello");
 //	cout << str << endl;
 //
 //	free(str);
@@ -225,7 +225,7 @@ int main(int argc, char* argv[])
 			p = Enc(argv[2]);
 			if (p == NULL) { printf("Function ERROR!"); return funcERR; }
 			else { printf(p); cout << endl; delete p; p = NULL; }
-		} 
+		}
 		else if (_stricmp(argv[1], "-Dec") == 0) {
 			Dec(argv[2]);
 		}
@@ -244,7 +244,7 @@ int main(int argc, char* argv[])
 				if (wp == NULL) { printf("Memory ERROR!"); return allocERR; }
 				otFile.write(wp, strlen(wp));
 				delete wp;//重要!释放内存
-			} while (!inFile.eof());
+			} while (not inFile.eof());
 			inFile.close();
 			otFile.close();
 		}
@@ -253,7 +253,7 @@ int main(int argc, char* argv[])
 		}
 	}
 	else {
-		printf("%s Parameter ERROR!\n",argv[1]);
+		printf("%s Parameter ERROR!\n", argv[1]);
 	};
 
 	return Err;
