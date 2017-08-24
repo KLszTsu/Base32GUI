@@ -62,14 +62,14 @@ char* Enc(char* argv, bool binary = false) {
 	unsigned char* od = new(nothrow) unsigned char[(8 * StrCharSize * sizeof(wchar_t) / sizeof(char) + 4) / 5 + 1]();//分配内存空间,存储编码后数据
 	unsigned char* pProc, *dProc;//以8bit为单位的处理用指针
 	void* pSrc, *pOverflow;//存储元数据首地址和溢出地址(最后一位地址+1)
-	void* dSrc, *dOverflow;//存储译文首地址和溢出地址(最后一位地址+1)
+	void* /* dSrc, // Set but not use */ dOverflow;//存储译文首地址和溢出地址(最后一位地址+1)
 	if ((sp == NULL) || (od == NULL)) return NULL;//检测空指针
 
 	pProc = (unsigned char*)(sp);
 	pSrc = sp;
 	pOverflow = sp + StrCharSize;
 	dProc = (unsigned char*)(od);
-	dSrc = od;
+	// dSrc = od; // Set but not use
 	dOverflow = od + ((8 * StrCharSize * sizeof(wchar_t) / sizeof(char) + 4) / 5 + 1);//向上取整再加一
 	//各类指针初始化
 
@@ -205,7 +205,7 @@ int Dec(char* argv) {
 	}
 	wcout << od << endl;
 	delete[] od;//释放内存与指针
-	od, dProc, dSrc, dOverflow, pProc, pSrc, pOverflow = NULL;
+	od = NULL; dProc = NULL; dSrc = NULL; dOverflow = NULL; pProc = NULL; pSrc = NULL; pOverflow = NULL;
 	return 0;
 }
 
