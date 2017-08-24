@@ -1,7 +1,9 @@
 #define __BASE32GUI__
 
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+//Qt's includes
+//add folder path when including, get folder path from /usr/include/x86_64-linux-gnu/qt5
+#include <QtGui/QGuiApplication>
+#include <QtQml/QQmlApplicationEngine>
 
 #include "../Base32/Base32.cpp"
 
