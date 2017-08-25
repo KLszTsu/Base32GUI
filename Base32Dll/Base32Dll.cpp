@@ -54,11 +54,11 @@ char* Base32Enc(char* argv)
 	StrCharSize = mbstowcs(NULL, argv, 0);//调用函数获得需要的内存空间
 
 	wchar_t* sp = new(nothrow) wchar_t[StrCharSize + 1]();//分配内存空间,存储UNICODE元数据
+	if ((sp == NULL) || (od == NULL)) return allocERR;//检测空指针
 	unsigned char* od = new(nothrow) unsigned char[8 * (StrCharSize * sizeof(wchar_t) / sizeof(char) / 5 + 1) + 1]();//分配内存空间,存储编码后数据
 	unsigned char* pProc, *dProc;//以8bit为单位的处理用指针
 	void* pSrc, *pOverflow;//存储元数据首地址和溢出地址
 	void* dSrc, *dOverflow;//存储译文首地址和溢出地址
-	if ((sp == NULL) || (od == NULL)) return allocERR;//检测空指针
 
 	mbstowcs((wchar_t*)sp, argv, 2 * StrCharSize);//在申请的内存空间存入转换后的UNICODE字符
 
