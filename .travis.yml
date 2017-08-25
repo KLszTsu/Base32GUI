@@ -13,7 +13,7 @@ install:
 
 script:
     - cd Base32GUI
-    - /opt/qt58/bin/qmake -project
+    - /opt/qt58/bin/qmake -makefile
     - /opt/qt58/bin/qmake Base32GUI.pro
     - make
 
