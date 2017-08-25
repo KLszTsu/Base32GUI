@@ -177,11 +177,11 @@ int Dec(char* argv) {
 	void* pOverflow = pProc + 1;//存储元数据溢出地址(最后一位地址+1)
 	pProc = (unsigned char*)pSrc;
 	unsigned char* dProc;//以8bit为单位的放置数据指针
-	void* dSrc, *dOverflow;//存储译文首地址和溢出地址(最后一位地址+1)
+	void* /* dSrc, // Set but not use */ dOverflow;//存储译文首地址和溢出地址(最后一位地址+1)
 	if (od == NULL) return allocERR;//检测空指针
 
 	dProc = (unsigned char*)(od)+1;//初始置于第一个宽字符的高8位
-	dSrc = (unsigned char*)od;
+	// dSrc = (unsigned char*)od; // Set but not use
 	dOverflow = (unsigned char*)od + (StrCharSize * 5 / 16) * sizeof(wchar_t) / sizeof(char) + 1;
 	//各类指针初始化
 
@@ -205,7 +205,7 @@ int Dec(char* argv) {
 	}
 	wcout << od << endl;
 	delete[] od;//释放内存与指针
-	od = NULL; dProc = NULL; dSrc = NULL; dOverflow = NULL; pProc = NULL; pSrc = NULL; pOverflow = NULL;
+	od = NULL; dProc = NULL; /* dSrc = NULL; // Set but not use */ dOverflow = NULL; pProc = NULL; pSrc = NULL; pOverflow = NULL;
 	return 0;
 }
 
